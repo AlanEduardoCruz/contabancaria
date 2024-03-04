@@ -1,6 +1,7 @@
 package conta;
 
 import java.util.Scanner;
+import conta.util.Cores;
 
 public class Menu {
 
@@ -11,7 +12,8 @@ public class Menu {
 		int opcao;
 
 		while (true) {
-			System.out.println("******************************************************************************");
+			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND
+							+  "*******************************************************************************");
 			System.out.println("                                                                              ");
 			System.out.println("                          BANCO DO BRAZIL COM Z                               ");
 			System.out.println("                                                                              ");
@@ -29,7 +31,7 @@ public class Menu {
 			System.out.println("                                                                              ");
 			System.out.println("******************************************************************************");
 			System.out.println("Entre com a opcao desejada:												 	  ");
-			System.out.println("                                                                              ");
+			System.out.println("                                                                              " +Cores.TEXT_RESET);
 
 			opcao = leia.nextInt();
 
@@ -41,40 +43,41 @@ public class Menu {
 			}
 			switch (opcao) {
 			case 1:
-				System.out.println("Criar Conta\n\n");
-
-				break;
+				System.out.println(Cores.TEXT_WHITE + "Criar Conta\n\n");
+			
+                		break;
 			case 2:
-				System.out.println("Listar todas as contas");
-
-				break;
+				System.out.println(Cores.TEXT_WHITE + "Listar todas as Contas\n\n");
+				
+                		break;
 			case 3:
-				System.out.println("Consultar dados da conta\n\n");
+				System.out.println(Cores.TEXT_WHITE + "Consultar dados da Conta - por número\n\n");
 
-				break;
+                		break;
 			case 4:
-				System.out.println("Atualizar dados da Conta\n\n");
-
-				break;
+				System.out.println(Cores.TEXT_WHITE + "Atualizar dados da Conta\n\n");
+				
+                		break;
 			case 5:
-				System.out.println("Apagar Conta\n\n");
-
-				break;
+				System.out.println(Cores.TEXT_WHITE + "Apagar a Conta\n\n");
+	
+               	 	break;
 			case 6:
-				System.out.println("Saque\n\n");
+				System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
 
-				break;
+               	 	break;
 			case 7:
-				System.out.println("Depósito\n\n");
-
-				break;
+				System.out.println(Cores.TEXT_WHITE + "Depósito\n\n");
+				
+                		break;
 			case 8:
-				System.out.println("Transferência entre Contas\n\n");
-
-				break;
+				System.out.println(Cores.TEXT_WHITE + "Transferência entre Contas\n\n");
+				
+                		break;
 			default:
-				System.out.println("\nOpçao inválida!\n");
-				break;
+				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
+                		break;
+		
 
 			}
 		}
