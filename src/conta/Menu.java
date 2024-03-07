@@ -11,17 +11,6 @@ public class Menu {
 
 	public static void main(String[] args) {
 
-		// Instanciando objeto
-		Conta c1 = new Conta(1, 123, 1, "Adriana", 10000.00f);
-
-		// Teste da Classe Conta
-
-		c1.visualizar();
-		c1.sacar(12000.0f);
-		c1.visualizar();
-		c1.depositar(5000.0f);
-		c1.visualizar();
-
 		ContaCorrente cc1 = new ContaCorrente(1, 123, 1, "Mariana", 15000.00f, 1000f);
 		cc1.visualizar();
 		cc1.sacar(12000.0f);

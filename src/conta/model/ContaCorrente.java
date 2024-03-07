@@ -18,17 +18,29 @@ public class ContaCorrente extends Conta {
 	}
 
 	// Métodos de Acesso
-	public void limite(float limite) {
-		this.limite = limite;
+	public float getLimite() {
+		return limite;
 	}
-
 	public void setLimite(float limite) {
 		this.limite = limite;
 
 	}
 
-	// Método ESpecificos
+	// Método Especificos
 	
+	
+	@Override
+	public boolean sacar(float valor) { 
+		
+		if(this.getSaldo() + this.getLimite() < valor) {
+			System.out.println("\n Saldo Insuficiente!");
+			return false;
+		}
+		
+		this.setSaldo(this.getSaldo() - valor);
+		return true;
+		
+	}
 	@Override // Override = Sobreescrever
 	public void visualizar() {
 

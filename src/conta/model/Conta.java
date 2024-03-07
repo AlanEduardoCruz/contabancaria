@@ -1,6 +1,8 @@
 package conta.model;
 
-public class Conta {
+// classe só serve de molde
+
+public  abstract class Conta {
 
 	// Atributos // Caracteristicas
 
