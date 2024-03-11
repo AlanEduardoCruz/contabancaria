@@ -19,7 +19,7 @@ public class Menu {
 
 		int opcao, numero, agencia, tipo, aniversario;
 		String titular;
-		float saldo, limite;
+		float saldo = 2, limite;
 
 		while (true) {
 			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND
@@ -103,15 +103,72 @@ public class Menu {
 			case 3:
 				System.out.println(Cores.TEXT_WHITE + "Consultar dados da Conta - por número\n\n");
 
+				System.out.println("Digite o número da conta: ");
+				numero = leia.nextInt();
+
+				contas.procurarPorNumero(numero);
+
 				KeyPress();
 				break;
 			case 4:
 				System.out.println(Cores.TEXT_WHITE + "Atualizar dados da Conta\n\n");
 
+				System.out.println("Atualizar dados da conta\n\n");
+
+				System.out.println("Digite o número da conta: ");
+				numero = leia.nextInt();
+
+				var buscarConta = contas.buscarNaCollection(numero);
+
+				if (buscarConta != null) {
+
+					tipo = buscarConta.getTipo();
+
+					System.out.println("Digite o Número da Agência: ");
+					agencia = leia.nextInt();
+					System.out.println("Digite o Nome do Titular: ");
+					leia.next();
+					titular = leia.nextLine();
+					
+					System.out.println("Digite o  Saldo da Conta (R$): ");
+					saldo = leia.nextFloat();
+
+					switch (tipo) {
+
+					case 1 -> {
+						System.out.println("Digite o limite de Crédito (R$): ");
+						limite = leia.nextFloat();
+
+						contas.atualizar(new ContaCorrente(numero, agencia, tipo, titular, saldo, limite));
+						}
+					case 2 ->{
+						System.out.println("Digite o dia do Aniversario");
+						aniversario = leia.nextInt();
+						
+						contas.atualizar(new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario));
+					}
+					
+					
+					default -> {
+						System.out.println("Tipo de conta inválido!");
+						}
+					}				
+
+				}
+				else {
+					System.out.println("A conta não foi encontrada");
+				}
+
 				KeyPress();
 				break;
+				
 			case 5:
 				System.out.println(Cores.TEXT_WHITE + "Apagar a Conta\n\n");
+				
+				System.out.println("Digite o número da conta: ");
+				numero = leia.nextInt();
+				
+				contas.deletar(numero);
 
 				KeyPress();
 				break;
